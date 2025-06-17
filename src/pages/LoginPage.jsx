@@ -1,7 +1,7 @@
 import { EnvelopeSimple, LockKey } from "phosphor-react";
-import ImgLogin from "./assets/innovation-animate.svg"
+import ImgLogin from "../assets/innovation-animate.svg"
 
-function App() {
+function LoginPage() {
   return (
     <div className="w-full h-screen flex">
       <div className="bg-linear-65 from-purple-500 to-pink-500 w-1/2 h-full flex items-center justify-center flex-col text-white" name="esquerda">
@@ -55,4 +55,4 @@ function App() {
   );
 }
 
-export default App;
+export default LoginPage;
