@@ -4,7 +4,7 @@ import ImgLogin from "../assets/innovation-animate.svg"
 function LoginPage() {
   return (
     <div className="w-full h-screen flex">
-      <div className="bg-linear-65 from-purple-500 to-pink-500 w-1/2 h-full flex items-center justify-center flex-col text-white" name="esquerda">
+      <div className="bg-linear-65 from-purple-700 to-pink-500 w-1/2 h-full flex items-center justify-center flex-col text-white" name="esquerda">
         <img src={ImgLogin} alt="Imagem de Login." className="w-[350px]" />
         <h1 className="text-3xl font-bold mb-4">Secure Login Portal.</h1>
 
@@ -47,7 +47,7 @@ function LoginPage() {
             </label>
           </div>
 
-          <button className="text-white bg-linear-65 from-pink-500 to-purple-500 w-3/5 py-2 rounded-md cursor-pointer hover:transition-all hover:transform hover:scale-105 duration-500">SIGN IN</button>
+          <button className="text-white bg-linear-65 from-pink-500 to-purple-700 w-3/5 py-2 rounded-md cursor-pointer hover:transition-all hover:transform hover:scale-105 duration-500">SIGN IN</button>
         
         </form>
       </div>
