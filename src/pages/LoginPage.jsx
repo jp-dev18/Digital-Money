@@ -1,7 +1,14 @@
 import { EnvelopeSimple, LockKey } from "phosphor-react";
-import ImgLogin from "../assets/innovation-animate.svg"
+import ImgLogin from "../assets/innovation-animatejk.svg"
+import { useNavigate } from "react-router";
 
 function LoginPage() {
+  let navigate = useNavigate();
+
+  function handleLogin() {
+    navigate("/dashboard")
+  }
+
   return (
     <div className="w-full h-screen flex">
       <div className="bg-linear-65 from-purple-700 to-pink-500 w-1/2 h-full flex items-center justify-center flex-col text-white" name="esquerda">
@@ -47,7 +54,7 @@ function LoginPage() {
             </label>
           </div>
 
-          <button className="text-white bg-linear-65 from-pink-500 to-purple-700 w-3/5 py-2 rounded-md cursor-pointer hover:transition-all hover:transform hover:scale-105 duration-500">SIGN IN</button>
+          <button className="text-white bg-linear-65 from-pink-500 to-purple-700 w-3/5 py-2 rounded-md cursor-pointer hover:transition-all hover:transform hover:scale-105 duration-500" onClick={handleLogin}>SIGN IN</button>
         
         </form>
       </div>
