@@ -1,0 +1,20 @@
+{
+    "transactions": [
+      {
+        "id": "950a",
+        "title": "Curso",
+        "price": 2500,
+        "category": "Educação",
+        "transactionType": "withdraw",
+        "date": "17/05/2025"
+      },
+      {
+        "title": "Café em barras de ouro",
+        "price": 908,
+        "category": "Alimentacao",
+        "transactionType": "withdraw",
+        "date": "07/06/2025",
+        "id": "8bca"
+      }
+    ]
+  }
