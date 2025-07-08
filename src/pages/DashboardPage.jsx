@@ -63,9 +63,9 @@ useEffect(() => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
-              {transactions.map((transaction) => {
+              {transactions.map((transaction, index) => {
                 return (
-                  <tr className="hover:bg-gray-50 bg-white">
+              <tr key={index} className="hover:bg-gray-50 bg-white">
                 <td className="px-6 py-4">{transaction.title}</td>
                 <td className="px-6 py-4 text-green-500 font-medium">
                   R$ {transaction.price}

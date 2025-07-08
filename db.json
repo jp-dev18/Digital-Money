@@ -1,20 +1,36 @@
 {
-    "transactions": [
-      {
-        "id": "950a",
-        "title": "Curso",
-        "price": 2500,
-        "category": "Educação",
-        "transactionType": "withdraw",
-        "date": "17/05/2025"
-      },
-      {
-        "title": "Café em barras de ouro",
-        "price": 908,
-        "category": "Alimentacao",
-        "transactionType": "withdraw",
-        "date": "07/06/2025",
-        "id": "8bca"
-      }
-    ]
-  }
+  "transactions": [
+    {
+      "id": "950a",
+      "title": "Curso",
+      "price": 2500,
+      "category": "Educação",
+      "transactionType": "withdraw",
+      "date": "17/05/2025"
+    },
+    {
+      "title": "Café em barras de ouro",
+      "price": 908,
+      "category": "Alimentacao",
+      "transactionType": "withdraw",
+      "date": "07/06/2025",
+      "id": "8bca"
+    },
+    {
+      "id": "2161",
+      "title": "maxforma",
+      "price": "1440",
+      "transactionType": "input",
+      "category": "saúde",
+      "date": "07/07/2025"
+    },
+    {
+      "id": "eff0",
+      "title": "max forma",
+      "price": "1440",
+      "transactionType": "output",
+      "category": "saúde / bem estar",
+      "date": "07/07/2025"
+    }
+  ]
+}
