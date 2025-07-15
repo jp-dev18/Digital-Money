@@ -18,7 +18,7 @@ function LoginPage() {
         <p className="text-center">Acess your dashboard securely with our procted login <br /> system. Your data is encrypted and secure.
         </p>
       </div>
-      <div className="bg-white w-1/2 h-full text-center flex flex-col justify-center items-center gap-4 " name="direita">
+      <div className="bg-white w-1/2 h-full text-center flex flex-col justify-center items-center gap-4" name="direita">
         <h1 className="text-3xl font-bold">Welcome back!</h1>
         <p className="text-gray-500">Enter your details to sign in to your account</p>
 

@@ -9,6 +9,8 @@ import Modal from "../components/Modal/modal";
 import { useEffect, useState } from "react";
 import Card from "../components/Card/Card";
 import axios from "axios";
+import { API_URL } from "../utils/constants";
+import DropdownOptions from "../components/DropdownOptions/DropdownOptions";
 
 function DashbordPage() {
   const [open, setOpen] = useState(false);
@@ -26,6 +28,29 @@ useEffect(() => {
   getTransactions();
 }, [])
 
+async function handleDeleteTransaction(id) {
+  // Pop up de confirmação
+  const confirmDelete = window.confirm("Are you sure you want to delete this transaction?");
+
+  if (confirmDelete === false) {
+    return;
+  }
+
+  console.log(id);
+  await axios.delete(API_URL + `/transactions/${id}`);
+}
+
+const AllInputsSum = transactions.filter((transaction) => transaction.transitionType === "input").reduce((prev, curr) => {
+  return prev + parseFloat(curr.price);
+}, 0);
+
+const AllOutputsSum = transactions.filter((transaction) => transaction.transitionType === "output").reduce((prev, curr) => {
+  return prev + parseFloat(curr.price);
+}, 0);
+
+const Total = AllInputsSum - AllOutputsSum;
+
+console.log(AllInputsSum);
   return (
     <div className="min-h-screen flex flex-col bg-gray-100">
       <header className="w-full bg-purple-700 py-6 pb-32 md:px-6">
@@ -36,18 +61,23 @@ useEffect(() => {
           <button 
           onClick={() => setOpen(true)}
           className="bg-white/20 px-12 rounded py-2 hover:bg-white/30 text-white border-0 cursor-pointer">
-            Nova transação
+            New Transaction
           </button>
+        </div>
+
+        <div className="flex justify-end pt-4 md:mt-0">
+          <DropdownOptions />
+
         </div>
       </header>
       <main className="flex-1 container mx-auto py-8 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 -mt-24">
-            <Card title="Entradas" icon={<ArrowCircleUp className="text-green-500" size={32} />} amount="R$ 0,00" bgColor="bg-white"/>
+            <Card title="Entries" icon={<ArrowCircleUp className="text-green-500" size={32} />} amount={AllInputsSum} bgColor="bg-white"/>
 
-            <Card title="Saídas" icon={<ArrowCircleDown className="text-red-500" size={32} />} amount="R$ 0,00" bgColor="bg-white"/>
+            <Card title="Exits" icon={<ArrowCircleDown className="text-red-500" size={32} />} amount={AllOutputsSum} bgColor="bg-white"/>
 
-            <Card title="Total" icon={<CurrencyDollar size={32} />} amount="R$ 0,00" bgColor="bg-green-500" textColor="text-white"/>
-          
+            <Card title="Amount" icon={<CurrencyDollar size={32} />} amount={Total} bgColor="bg-green-500" textColor="text-white"/>
+
         </div>
 
         <div className="overflow-x-auto mt-8">
@@ -77,7 +107,8 @@ useEffect(() => {
                     <TrashSimple
                       size={24}
                       weight="fill"
-                      className="text-red-500"
+                      className="text-red-500 cursor-pointer  hover:text-red-700"
+                      onClick={() => handleDeleteTransaction(transaction.id)}
                     />
                   </button>
                 </td>

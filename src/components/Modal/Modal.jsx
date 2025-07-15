@@ -24,7 +24,7 @@ export default function Modal({ open, setOpen }) {
     await axios.post("http://localhost:3000/transactions", {
       title,
       price,
-      transactionType: type,
+      transitionType: type,
       category,
       date: format(new Date(), "dd/MM/yyyy"),
     })
