@@ -8,9 +8,12 @@ import {
 import axios from "axios";
 import { format } from "date-fns";
 import { ArrowCircleDown, ArrowCircleUp } from "phosphor-react";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import ThemeContext from "../../contexts/ThemeContext";
 
 export default function Modal({ open, setOpen }) {
+  const { darkMode } = useContext(ThemeContext);
+
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
 
@@ -62,10 +65,10 @@ export default function Modal({ open, setOpen }) {
               transition
               className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all data-closed:translate-y-4 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in sm:my-8 sm:w-full sm:max-w-lg data-closed:sm:translate-y-0 data-closed:sm:scale-95"
             >
-              <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+              <div className={"px-4 pt-5 pb-4 sm:p-6 sm:pb-4 " + (darkMode ? "bg-gray-800" : "bg-white")}>
                 <div className="sm:flex sm:items-start">
                   <div className="mt-3 text-center sm:mt-0 sm:text-left w-full">
-                    <h1 className="text-2xl font-bold text-gray-900 mb-5">
+                    <h1 className={"text-2xl font-bold  mb-5 " + (darkMode ? "text-white" : "text-gray-800")}>
                       Cadastrar transação
                     </h1>
                     <div className="mt-2 w-full space-y-5">
@@ -82,7 +85,7 @@ export default function Modal({ open, setOpen }) {
                       />
                       <div className="flex justify-between">
                         <button
-                          className={`px-4 py-2 cursor-pointer w-[49%] h-[50px] flex gap-4 items-center justify-center transition ease-in-out duration-150 ${type === "input" ? "bg-emerald-100 hover:bg-emerald-200" : "bg-gray-100 hover:bg-gray-200"}`}
+                          className={`px-4 py-2 cursor-pointer w-[49%] h-[50px] flex gap-4 items-center justify-center transition ease-in-out duration-150 ${type === "input" ? "bg-emerald-300 hover:bg-emerald-400" : "bg-gray-100 hover:bg-gray-200"}`}
                           onClick={() => handleChangeType("input")}
                           value="input"
                         >
@@ -95,7 +98,7 @@ export default function Modal({ open, setOpen }) {
                         </button>
 
                         <button
-                          className={`px-4 py-2 cursor-pointer w-[49%] h-[50px] flex gap-4 items-center justify-center transition ease-in-out duration-150 ${type === "output" ? "bg-red-100 hover:bg-red-200" : "bg-gray-100 hover:bg-gray-200"}`}
+                          className={`px-4 py-2 cursor-pointer w-[49%] h-[50px] flex gap-4 items-center justify-center transition ease-in-out duration-150 ${type === "output" ? "bg-red-300 hover:bg-red-400" : "bg-gray-100 hover:bg-gray-200"}`}
                           onClick={() => handleChangeType("output")}
                           value="output"
                         >
